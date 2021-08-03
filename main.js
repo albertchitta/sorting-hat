@@ -4,6 +4,7 @@
 //   house:
 // }
 const students = [];
+const voldysArmy = [];
 
 // Render to DOM
 const renderToDom = (divId, textToPrint) => {
@@ -46,6 +47,7 @@ const studentForm = (event) => {
 
 // Sort student into a random house
 const studentSort = (event) => {
+  // Prevent browser from executing default action
   event.preventDefault();
   if (event.target.id === "sortBtn") {
     randomHouse = houseSort();
@@ -80,6 +82,22 @@ const houseSort = () => {
   return house;
 };
 
+// Expels a student to Voldy's Army
+const studentExpel = (event) => {
+  const targetId = event.target.id;
+  const targetType = event.target.type;
+
+  if (event.target.id === "expelBtn" && targetType === "button") {
+    const voldy = "Death Eater";
+    // student.house = voldy;
+    students.splice(targetId, 1);
+    studentCardBuilder(students);
+  }
+
+
+  // return house;
+};
+
 // Builds the student card
 const studentCardBuilder = (studentsArray) => {
   let domString = "";
@@ -91,7 +109,7 @@ const studentCardBuilder = (studentsArray) => {
         <div class="card-body">
           <h5 class="card-title">${student.name}</h5>
           <p class="card-text">${student.house}</p>
-          <button id="expelBtn" type="submit" class="btn btn-primary">Expel</button>
+          <button id="expelBtn" type="button" class="btn btn-primary">Expel</button>
         </div>
       </div>
     `;
@@ -104,6 +122,7 @@ const studentCardBuilder = (studentsArray) => {
 const buttonEvents = () => {
   document.querySelector("#welcome").addEventListener("click", studentForm);
   document.querySelector("#form").addEventListener("click", studentSort);
+  document.querySelector("#cardContainer").addEventListener("click", studentExpel);
 }
 
 // Starts the app
