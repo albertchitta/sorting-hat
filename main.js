@@ -76,21 +76,6 @@ const houseSort = () => {
   console.log(house);
   const elem = document.getElementById("studentCard");
 
-  if (house === "Gryffindor") {
-    console.log("red");
-    house.crest = "https://thenichollsworth.com/wp-content/uploads/2020/11/C0441055-AEE4-4C0D-8F43-A708DDEB6C3B-721x900.jpeg";
-    elem.style.border = "5px solid red";
-  }
-  if (house === "Hufflepuff") {
-    console.log("yellow");
-  }
-  if (house === "Ravenclaw") {
-    console.log("blue");
-  }
-  if (house === "Slytherin") {
-    console.log("green");
-  }
-
   return house;
 };
 
@@ -132,9 +117,10 @@ const studentCardBuilder = (studentsArray) => {
   let domString = "";
 
   studentsArray.forEach((student, i) => {
-    domString += `
-      <div id="studentCard" class="card" style="width: 18rem;">
-        <img class="card-img-top" src="${student.crest}" alt="student house crest">
+    if (student.house === "Gryffindor") {
+      domString += `
+      <div id="Gryffindor" class="card" style="width: 18rem;">
+        <img class="card-img-top" src="https://thenichollsworth.com/wp-content/uploads/2020/11/C0441055-AEE4-4C0D-8F43-A708DDEB6C3B-721x900.jpeg" alt="student house crest">
         <div class="card-body">
           <h5 class="card-title">${student.name}</h5>
           <p class="card-text">${student.house}</p>
@@ -142,6 +128,40 @@ const studentCardBuilder = (studentsArray) => {
         </div>
       </div>
     `;
+    } else if (student.house === "Hufflepuff") {
+      domString += `
+      <div id="Hufflepuff" class="card" style="width: 18rem;">
+        <img class="card-img-top" src="" alt="student house crest">
+        <div class="card-body">
+          <h5 class="card-title">${student.name}</h5>
+          <p class="card-text">${student.house}</p>
+          <button id="${i}" type="button" class="btn btn-primary">Expel</button>
+        </div>
+      </div>
+    `;
+    } else if (student.house === "Ravenclaw") {
+      domString += `
+      <div id="Ravenclaw" class="card" style="width: 18rem;">
+        <img class="card-img-top" src="" alt="student house crest">
+        <div class="card-body">
+          <h5 class="card-title">${student.name}</h5>
+          <p class="card-text">${student.house}</p>
+          <button id="${i}" type="button" class="btn btn-primary">Expel</button>
+        </div>
+      </div>
+    `;
+    } else {
+      domString += `
+      <div id="Slytherin" class="card" style="width: 18rem;">
+        <img class="card-img-top" src="" alt="student house crest">
+        <div class="card-body">
+          <h5 class="card-title">${student.name}</h5>
+          <p class="card-text">${student.house}</p>
+          <button id="${i}" type="button" class="btn btn-primary">Expel</button>
+        </div>
+      </div>
+    `;
+    }
   });
 
   renderToDom("#cardContainer", domString);

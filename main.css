@@ -12,6 +12,7 @@ h1, p {
 #form {
   display: flex;
   justify-content: center;
+  text-align: center;
 }
 
 .form-group {
@@ -24,9 +25,21 @@ h1, p {
   border: 2px solid lightgray;
 }
 
-/* #studentCard {
+#Gryffindor {
   border: 2px solid red;
-} */
+}
+
+#Hufflepuff {
+  border: 2px solid yellow;
+}
+
+#Ravenclaw {
+  border: 2px solid blue;
+}
+
+#Slytherin {
+  border: 2px solid green;
+}
 
 #voldyContainer {
   display: flex;
