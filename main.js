@@ -1,8 +1,3 @@
-// Student Array
-// {
-//   name:
-//   house:
-// }
 const students = [];
 const voldysArmy = [];
 
@@ -19,7 +14,7 @@ const welcomeBanner = () => {
       <h1 class="display-4">Welcome to Hogwarts!</h1>
       <p class="lead">We are pleased to inform you that you have a place at Hogwarts School of Witchcraft and Wizardry. Click below to see where you belong!</p>
       <p class="lead">
-        <a id="startBtn" class="btn btn-primary btn-lg" href="#" role="button">Find My House</a>
+        <a id="startBtn" class="btn btn-primary btn-lg" href="#" role="button">Let's Start Sorting</a>
       </p>
       <hr class="my-4">
     </div>
@@ -61,7 +56,8 @@ const studentSort = (event) => {
     const newStudent = {
       name: document.querySelector("#name").value,
       house: randomHouse,
-      id: studentId
+      id: studentId,
+      crest: randomHouse
     }
 
     students.push(newStudent);
@@ -77,6 +73,23 @@ const studentSort = (event) => {
 const houseSort = () => {
   const houses = ["Gryffindor", "Hufflepuff", "Ravenclaw", "Slytherin"];
   const house = houses[Math.floor(Math.random() * houses.length)];
+  console.log(house);
+  const elem = document.getElementById("studentCard");
+
+  if (house === "Gryffindor") {
+    console.log("red");
+    house.crest = "https://thenichollsworth.com/wp-content/uploads/2020/11/C0441055-AEE4-4C0D-8F43-A708DDEB6C3B-721x900.jpeg";
+    elem.style.border = "5px solid red";
+  }
+  if (house === "Hufflepuff") {
+    console.log("yellow");
+  }
+  if (house === "Ravenclaw") {
+    console.log("blue");
+  }
+  if (house === "Slytherin") {
+    console.log("green");
+  }
 
   return house;
 };
@@ -101,7 +114,7 @@ deathEaterCardBuilder = (voldysArray) => {
 
   voldysArray.forEach((deathEater) => {
     domString += `
-      <div class="card" style="width: 18rem;">
+      <div id="voldCard" class="card" style="width: 18rem;">
         <img class="card-img-top" src="" alt="Card image cap">
         <div class="card-body">
           <h5 class="card-title">${deathEater.name}</h5>
@@ -120,8 +133,8 @@ const studentCardBuilder = (studentsArray) => {
 
   studentsArray.forEach((student, i) => {
     domString += `
-      <div class="card" style="width: 18rem;">
-        <img class="card-img-top" src="" alt="Card image cap">
+      <div id="studentCard" class="card" style="width: 18rem;">
+        <img class="card-img-top" src="${student.crest}" alt="student house crest">
         <div class="card-body">
           <h5 class="card-title">${student.name}</h5>
           <p class="card-text">${student.house}</p>
