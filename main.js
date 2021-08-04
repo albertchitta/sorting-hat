@@ -35,7 +35,7 @@ const studentForm = (event) => {
     <form id="myForm">
       <div class="form-group">
         <label>Enter your name</label>
-        <input id="name" class="form-control" type="text" placeholder="Harry Potter">
+        <input id="name" class="form-control" type="text" placeholder="Harry Potter" required>
       </div>
       <button id="sortBtn" type="submit" class="btn btn-primary">Sort</button>
     </form>
@@ -65,7 +65,6 @@ const studentSort = (event) => {
     }
 
     students.push(newStudent);
-    console.log(students);
 
     studentCardBuilder(students);
 
@@ -87,29 +86,46 @@ const studentExpel = (event) => {
   const targetId = event.target.id;
   const targetType = event.target.type;
 
-  if (event.target.id === "expelBtn" && targetType === "button") {
-    const voldy = "Death Eater";
-    // student.house = voldy;
-    students.splice(targetId, 1);
+  if (event.target.type === "button") {
+    const expelledStudent = students.splice(targetId, 1);
+    voldysArmy.push(expelledStudent[0]);
+
     studentCardBuilder(students);
+    deathEaterCardBuilder(voldysArmy);
   }
+};
 
+// Builds the Death Eater card
+deathEaterCardBuilder = (voldysArray) => {
+  let domString = "";
 
-  // return house;
+  voldysArray.forEach((deathEater) => {
+    domString += `
+      <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">${deathEater.name}</h5>
+          <p class="card-text">${deathEater.house}</p>
+        </div>
+      </div>
+    `;
+  });
+
+  renderToDom("#voldyContainer", domString);
 };
 
 // Builds the student card
 const studentCardBuilder = (studentsArray) => {
   let domString = "";
 
-  studentsArray.forEach((student) => {
+  studentsArray.forEach((student, i) => {
     domString += `
       <div class="card" style="width: 18rem;">
         <img class="card-img-top" src="" alt="Card image cap">
         <div class="card-body">
           <h5 class="card-title">${student.name}</h5>
           <p class="card-text">${student.house}</p>
-          <button id="expelBtn" type="button" class="btn btn-primary">Expel</button>
+          <button id="${i}" type="button" class="btn btn-primary">Expel</button>
         </div>
       </div>
     `;
