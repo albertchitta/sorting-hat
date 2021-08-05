@@ -73,6 +73,9 @@ const studentSort = (event) => {
     }
 
     checkName(newStudent);
+    sortByName(students);
+    filterByHouse();
+    studentCardBuilder(students);
   }
 };
 
@@ -85,7 +88,6 @@ const checkName = (student) => {
     students.push(student);
     domString = `<h5></h5>`;
     renderToDom("#warning", domString);
-    studentCardBuilder(students);
   }
 
   // Clear form after submitting
@@ -100,6 +102,40 @@ const houseSort = () => {
   return house;
 };
 
+// Sorts the students by first name
+const sortByName = (array) => {
+  array.sort((a,b) => {
+    let name1 = a.name.toLowerCase();
+    let name2 = b.name.toLowerCase();
+
+    if (name1 < name2) {
+      return -1;
+    }
+    if (name1 > name2) {
+      return 1;
+    }
+
+    return 0;
+  });
+};
+
+// Sorts the students by house
+const filterByHouse = () => {
+  students.sort((a,b) => {
+    let house1 = a.house.toLowerCase();
+    let house2 = b.house.toLowerCase();
+
+    if (house1 < house2) {
+      return -1;
+    }
+    if (house1 > house2) {
+      return 1;
+    }
+
+    return 0;
+  });
+};
+
 // Expels a student to Voldy's Army
 const studentExpel = (event) => {
   const targetId = event.target.id;
@@ -110,6 +146,7 @@ const studentExpel = (event) => {
     voldysArmy.push(expelledStudent[0]);
 
     studentCardBuilder(students);
+    nameInOrder(voldysArmy);
     deathEaterCardBuilder(voldysArmy);
   }
 };
