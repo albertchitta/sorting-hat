@@ -43,52 +43,61 @@ const studentForm = (event) => {
 
 // Sort student into a random house
 const studentSort = (event) => {
+
   // Prevent browser from executing default action
   event.preventDefault();
   if (event.target.id === "sortBtn") {
-    randomHouse = houseSort();
+    const studentName = document.querySelector("#name").value;
 
-    if (students.length === 0) {
-      studentId = 0;
+    if (studentName.length < 1) {
+      printWarning();
     } else {
-      studentId = students.length;
-    }
-    
-    let houseCrest = "";
-    if(randomHouse === "Gryffindor") {
-      houseCrest = "https://i.pinimg.com/originals/93/85/bf/9385bf3ca546d3c750363a78a68e0c70.jpg";
-    } else if (randomHouse === "Hufflepuff") {
-      houseCrest = "https://cdn11.bigcommerce.com/s-ydriczk/images/stencil/1280x1280/products/88364/91134/Harry-Potter-Hufflepuff-Crest-Official-wall-mounted-cardboard-cutout-buy-now-at-star__21122.1507644096.jpg?c=2";
-    } else if (randomHouse === "Ravenclaw") {
-      houseCrest = "https://cdn11.bigcommerce.com/s-ydriczk/images/stencil/1280x1280/products/88363/91130/Harry-Potter-Ravenclaw-Crest-Official-wall-mounted-cardboard-cutout-buy-now-at-star__86173.1507642983.jpg?c=2";
-    } else {
-      houseCrest = "https://cdn11.bigcommerce.com/s-ydriczk/images/stencil/1280x1280/products/88362/91127/Harry-Potter-Slytherin-Crest-Official-wall-mounted-cardboard-cutout-buy-now-at-star__31920.1507640618.jpg?c=2";
-    }
+      clearWarning();
+      randomHouse = houseSort();
 
-    const newStudent = {
-      name: document.querySelector("#name").value,
-      house: randomHouse,
-      id: studentId,
-      crest: houseCrest
+      if (students.length === 0) {
+        studentId = 0;
+      } else {
+        studentId = students.length;
+      }
+      
+      let houseCrest = "";
+      if(randomHouse === "Gryffindor") {
+        houseCrest = "https://i.pinimg.com/originals/93/85/bf/9385bf3ca546d3c750363a78a68e0c70.jpg";
+      } else if (randomHouse === "Hufflepuff") {
+        houseCrest = "https://cdn11.bigcommerce.com/s-ydriczk/images/stencil/1280x1280/products/88364/91134/Harry-Potter-Hufflepuff-Crest-Official-wall-mounted-cardboard-cutout-buy-now-at-star__21122.1507644096.jpg?c=2";
+      } else if (randomHouse === "Ravenclaw") {
+        houseCrest = "https://cdn11.bigcommerce.com/s-ydriczk/images/stencil/1280x1280/products/88363/91130/Harry-Potter-Ravenclaw-Crest-Official-wall-mounted-cardboard-cutout-buy-now-at-star__86173.1507642983.jpg?c=2";
+      } else {
+        houseCrest = "https://cdn11.bigcommerce.com/s-ydriczk/images/stencil/1280x1280/products/88362/91127/Harry-Potter-Slytherin-Crest-Official-wall-mounted-cardboard-cutout-buy-now-at-star__31920.1507640618.jpg?c=2";
+      }
+  
+      const newStudent = {
+        name: studentName,
+        house: randomHouse,
+        id: studentId,
+        crest: houseCrest
+      }
+  
+      students.push(newStudent);
+  
+      sortByName(students);
+      filterByHouse();
+      studentCardBuilder(students);
     }
-
-    checkName(newStudent);
-    sortByName(students);
-    filterByHouse();
-    studentCardBuilder(students);
   }
 };
 
-// Check to see if a name was entered in the form
-const checkName = (student) => {
-  if (student.name.length < 1) {
-    let domString = `<h6>Please type a name!</h6>`;
-    renderToDom("#warning", domString);
-  } else {
-    students.push(student);
-    domString = `<h5></h5>`;
-    renderToDom("#warning", domString);
-  }
+// Print warning message if a name was not entered in the form
+const printWarning = () => {
+  let domString = `<h6>Please type a name!</h6>`;
+  renderToDom("#warning", domString);
+}
+
+// Clear warning message
+const clearWarning = () => {
+  let domString = `<h5></h5>`;
+  renderToDom("#warning", domString);
 
   // Clear form after submitting
   document.getElementById("myForm").reset();
@@ -152,7 +161,7 @@ const studentExpel = (event) => {
 };
 
 // Builds the Death Eater card
-deathEaterCardBuilder = (voldysArray) => {
+const deathEaterCardBuilder = (voldysArray) => {
   let domString = "";
 
   voldysArray.forEach((deathEater) => {
