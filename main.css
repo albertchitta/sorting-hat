@@ -7,42 +7,67 @@
 
 h1, p {
   text-align: center;
+  margin-bottom: 20px;
+}
+
+h6 {
+  text-align: center;
+  color: rgb(223, 6, 6);
 }
 
 #form {
   display: flex;
   justify-content: center;
-  text-align: center;
+  /* text-align: center; */
 }
 
 .form-group {
   display: inline-block;
+  margin-right: 10px;
 }
 
-#cardContainer {
+#firstYearTitle, #voldyTitle {
+  font-size: x-large;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 50px;
+}
+
+#cardContainer, #voldyContainer {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   border: 2px solid lightgray;
+  margin: 20px auto;
+  max-width: 1400px;
+}
+
+.card {
+  margin: 10px;
+  text-align: center;
+}
+
+img {
+  height: 200px;
+  object-fit: contain;
 }
 
 #Gryffindor {
-  border: 2px solid red;
+  border: 5px solid #AE0001;
 }
 
 #Hufflepuff {
-  border: 2px solid yellow;
+  border: 5px solid #FFDB00;
 }
 
 #Ravenclaw {
-  border: 2px solid blue;
+  border: 5px solid #0f2986;
 }
 
 #Slytherin {
-  border: 2px solid green;
+  border: 5px solid #2A623D;
 }
 
-#voldyContainer {
-  display: flex;
-  flex-wrap: wrap;
-  border: 2px solid lightgray;
+#Death_Eater {
+  border: 5px solid black;
 }
