@@ -5,6 +5,11 @@
   min-width: 250px;
 }
 
+#startBtn:focus {
+  outline: none;
+  box-shadow: none;
+}
+
 h1, p {
   text-align: center;
   margin-bottom: 20px;
@@ -57,7 +62,7 @@ img {
 }
 
 #Hufflepuff {
-  border: 5px solid #FFDB00;
+  border: 5px solid #cfb404;
 }
 
 #Ravenclaw {
@@ -70,4 +75,116 @@ img {
 
 #Death_Eater {
   border: 5px solid black;
+}
+
+.expel {
+  background-color: rgb(223, 6, 6);
+  outline: none;
+  border: none;
+}
+
+.expel:hover {
+  background-color: rgb(133, 5, 5);
+}
+
+#buttonContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  min-width: 250px;
+}
+
+/* Style the 'All Students' button */
+#all {
+  border: none;
+  outline: none;
+  padding: 12px 16px;
+  background-color: rgb(92, 9, 226);
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+  margin: 10px 20px;
+  width: 105px;
+  font-size: large;
+}
+
+/* Style the 'Gryffindor' button */
+#gryffindor {
+  border: none;
+  outline: none;
+  padding: 12px 16px;
+  background-color: #AE0001;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+  margin: 10px 20px;
+  width: 105px;
+  font-size: large;
+}
+
+/* Style the 'Hufflepuff' button */
+#hufflepuff {
+  border: none;
+  outline: none;
+  padding: 12px 16px;
+  background-color: #cfb404;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+  margin: 10px 20px;
+  width: 105px;
+  font-size: large;
+}
+
+/* Style the 'Ravenclaw' button */
+#ravenclaw {
+  border: none;
+  outline: none;
+  padding: 12px 16px;
+  background-color: #0f2986;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+  margin: 10px 20px;
+  width: 105px;
+  font-size: large;
+}
+
+/* Style the 'Slytherin' button */
+#slytherin {
+  border: none;
+  outline: none;
+  padding: 12px 16px;
+  background-color: #2A623D;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+  margin: 10px 20px;
+  width: 105px;
+  font-size: large;
+}
+
+/* Add a dark purple background on mouse-over */
+#all:hover {
+  background-color: rgb(67, 7, 163);
+}
+
+/* Add a dark red background on mouse-over */
+#gryffindor:hover {
+  background-color: #5c0202;
+}
+
+/* Add a dark yellow background on mouse-over */
+#hufflepuff:hover {
+  background-color: #706102;
+}
+
+/* Add a dark blue background on mouse-over */
+#ravenclaw:hover {
+  background-color: #041550;
+}
+
+/* Add a dark green background on mouse-over */
+#slytherin:hover {
+  background-color: #053615;
 }
