@@ -16,7 +16,7 @@ const welcomeBanner = () => {
   const domString = `
     <div class="jumbotron">
       <h1 class="display-4">Welcome to Hogwarts!</h1>
-      <p class="lead">The finest school of witchcraft and wizardy in the world. Click to see where you belong!</p>
+      <p class="lead">The finest school of witchcraft and wizardy <strong>in the world</strong>. Click to see where you belong!</p>
       <p class="lead">
         <button id="startBtn" class="btn btn-primary btn-lg" href="#" role="button">Try on the Sorting Hat</button>
       </p>
@@ -192,7 +192,7 @@ const deathEaterCardBuilder = (voldysArray) => {
   let domString = "";
 
   voldysArray.forEach((deathEater) => {
-    deathEater.house = "Death_Eater"
+    deathEater.house = "Death Eater"
     domString += `
       <div id="${deathEater.house}" class="card" style="width: 18rem;">
         <img class="card-img-top" src="https://cdn.shopify.com/s/files/1/0030/6003/9729/products/il_fullxfull.1619712634_nn9z_452x.jpg?v=1556590059" alt="death eater mark">

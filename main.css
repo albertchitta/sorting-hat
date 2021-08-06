@@ -2,7 +2,16 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  min-width: 250px;
+  min-width: 450px;
+}
+
+.display-4 {
+  font-weight: 400;
+  font-size: 100px;
+}
+
+.lead {
+  font-size: 25px;
 }
 
 #startBtn:focus {
@@ -12,18 +21,20 @@
 
 h1, p {
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
 }
 
 h6 {
   text-align: center;
   color: rgb(223, 6, 6);
+  min-width: 400px;
+  margin-right: 50px;
 }
 
 #form {
   display: flex;
   justify-content: center;
-  /* text-align: center; */
+  min-width: 450px;
 }
 
 .form-group {
@@ -32,18 +43,23 @@ h6 {
 }
 
 #firstYearTitle, #voldyTitle {
-  font-size: x-large;
+  font-size: xx-large;
   font-weight: bold;
   text-align: center;
-  margin-top: 50px;
+  margin-bottom: 20px;
+  min-width: 450px;
 }
 
 #cardContainer, #voldyContainer {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+}
+
+#studentsContainer, #voldysArmy {
   border: 2px solid lightgray;
-  margin: 20px auto;
+  margin: 50px auto;
+  min-width: 450px;
   max-width: 1400px;
 }
 
@@ -104,7 +120,8 @@ img {
   cursor: pointer;
   border-radius: 5px;
   margin: 10px 20px;
-  width: 105px;
+  width: 120px;
+  height: 80px;
   font-size: large;
 }
 
@@ -118,7 +135,8 @@ img {
   cursor: pointer;
   border-radius: 5px;
   margin: 10px 20px;
-  width: 105px;
+  width: 120px;
+  height: 80px;
   font-size: large;
 }
 
@@ -132,7 +150,8 @@ img {
   cursor: pointer;
   border-radius: 5px;
   margin: 10px 20px;
-  width: 105px;
+  width: 120px;
+  height: 80px;
   font-size: large;
 }
 
@@ -140,13 +159,14 @@ img {
 #ravenclaw {
   border: none;
   outline: none;
-  padding: 12px 16px;
+  padding: 12px 20px;
   background-color: #0f2986;
   color: white;
   cursor: pointer;
   border-radius: 5px;
-  margin: 10px 20px;
-  width: 105px;
+  margin: 10px 16px;
+  width: 120px;
+  height: 80px;
   font-size: large;
 }
 
@@ -160,7 +180,8 @@ img {
   cursor: pointer;
   border-radius: 5px;
   margin: 10px 20px;
-  width: 105px;
+  width: 120px;
+  height: 80px;
   font-size: large;
 }
 
