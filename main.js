@@ -189,7 +189,9 @@ const studentExpel = (event) => {
 
 // Updates a student card
 const updateStudent = (event) => {
-
+  //create edit button
+  //event listener for edit button
+  //event handler for edit button
 };
 
 // Builds the Death Eater card
