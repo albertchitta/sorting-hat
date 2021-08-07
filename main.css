@@ -1,6 +1,8 @@
 #welcome {
+  margin: 0 auto;
   justify-content: center;
   min-width: 900px;
+  max-width: 1500px;
 }
 
 .display-4 {
@@ -41,7 +43,6 @@ h6 {
 }
 
 #bodyContainer {
-  /* border: 2px solid darkgray; */
   justify-content: center;
   display: flex;
   margin: 50px auto;
