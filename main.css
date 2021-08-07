@@ -1,17 +1,13 @@
 #welcome {
   margin: 0 auto;
   justify-content: center;
-  min-width: 900px;
-  max-width: 1500px;
+  min-width: 275px;
+  max-width: 1400px;
 }
 
 .display-4 {
   font-weight: 400;
-  font-size: 80px;
-}
-
-.lead {
-  font-size: 25px;
+  font-size: 50px;
 }
 
 #startBtn:focus {
@@ -22,57 +18,73 @@
 h1, p {
   text-align: center;
   margin-bottom: 20px;
+  font-size: larger;
 }
 
 h6 {
   text-align: center;
   color: rgb(223, 6, 6);
-  min-width: 850px;
+  min-width: 200px;
   margin-right: 50px;
 }
 
 #form {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
-  min-width: 900px;
+  min-width: 250px;
 }
 
 .form-group {
   display: inline-block;
-  margin-right: 10px;
+  margin-left: 10px;
+}
+
+#sortBtn {
+ margin-left: 10px;
+}
+
+#name {
+  justify-content: center;
+  margin-bottom: 5px;
 }
 
 #bodyContainer {
   justify-content: center;
   display: flex;
+  flex-wrap: wrap;
   margin: 50px auto;
-  margin-top: 50px;
-  max-width: 4000px;
-  min-width: 900px;
+  max-width: 1600px;
+  min-width: 275px;
 }
 
 #firstYearTitle, #voldyTitle {
-  font-size: xx-large;
+  font-size: x-large;
   font-weight: bold;
   text-align: center;
   margin-bottom: 10px;
+  min-width: 275px;
+}
+
+#studentsContainer, #voldysArmy {
+  border: 2px solid lightgray;
+  margin: 0 10px;
+  width: 775px;
+  min-width: 275px;
 }
 
 #cardContainer, #voldyContainer {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-}
-
-#studentsContainer, #voldysArmy {
-  border: 2px solid lightgray;
-  margin: 0 10px;
-  width: 2000px;
+  min-width: 275px;
 }
 
 .card {
-  margin: 10px;
+  margin: 20px -20px -50px -20px;
   text-align: center;
+  transform: scale(0.8);
+  transform-origin: top center;
 }
 
 img {
@@ -126,10 +138,9 @@ img {
   color: white;
   cursor: pointer;
   border-radius: 5px;
-  margin: 10px 20px;
-  width: 120px;
+  margin: 10px 5px;
+  width: 100px;
   height: 80px;
-  font-size: large;
 }
 
 /* Style the 'Gryffindor' button */
@@ -141,10 +152,9 @@ img {
   color: white;
   cursor: pointer;
   border-radius: 5px;
-  margin: 10px 20px;
-  width: 120px;
+  margin: 10px 5px;
+  width: 100px;
   height: 80px;
-  font-size: large;
 }
 
 /* Style the 'Hufflepuff' button */
@@ -156,25 +166,24 @@ img {
   color: white;
   cursor: pointer;
   border-radius: 5px;
-  margin: 10px 20px;
-  width: 120px;
+  margin: 10px 5px;
+  width: 100px;
   height: 80px;
-  font-size: large;
 }
 
 /* Style the 'Ravenclaw' button */
 #ravenclaw {
   border: none;
   outline: none;
-  padding: 12px 20px;
+  justify-content: center;
+  padding: 12px 16px;
   background-color: #0f2986;
   color: white;
   cursor: pointer;
   border-radius: 5px;
-  margin: 10px 16px;
-  width: 120px;
+  margin: 10px 5px;
+  width: 100px;
   height: 80px;
-  font-size: large;
 }
 
 /* Style the 'Slytherin' button */
@@ -186,10 +195,9 @@ img {
   color: white;
   cursor: pointer;
   border-radius: 5px;
-  margin: 10px 20px;
-  width: 120px;
+  margin: 10px 5px;
+  width: 100px;
   height: 80px;
-  font-size: large;
 }
 
 /* Add a dark purple background on mouse-over */
