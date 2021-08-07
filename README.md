@@ -1,52 +1,64 @@
-# Sorting Hat
+# Sorting Hat  [![Netlify Status](https://api.netlify.com/api/v1/badges/c9892978-61ce-43b2-86f3-0dabf5ef8b14/deploy-status)](https://app.netlify.com/sites/awc-sorting-hat/deploys)
+<!-- update the netlify badge above with your own badge that you can find at netlify under settings/general#status-badges -->
 
-## Goals
-The goal of this project is to test your knowledge and to have a FUN time stretching yourself on your FIRST independent application that will become a part of your portfolio.
+The Sorting Hat project is focused on creating an array of objects and printing them to the DOM. The project utilizes loops, event listeners, and filter buttons all built within functions.
 
-Focus on MVP. Do not spend a ton of time styling initially. Hit functionality first and then spend time on the styling of the project using bootstrap.
+[View App](https://awc-sorting-hat.netlify.app/)
 
-- READ THROUGH ALL OF THE INFORMATION BELOW before planning how you will tackle the project.
-- Check the Issue Tickets to organize your process. You will have all week in class to work on this in class. 
-- PLEASE submit questions along with a link to an issue/discussion ticket to the entire instructional team if you need help. We will guide you to the resources that are available to you.
-- On Saturday, everyone will present how far they got AND their favorite piece of code that they wrote for everyone to share in the Glory!
-- MOST OF ALL HAVE FUN!!!!!
+## Get Started <!-- OPTIONAL, but doesn't hurt -->
+```
+$ git clone git@github.com:albertchitta/sorting-hat.git
+$ cd sorting-hat
+```
+## About the User <!-- This is a scaled down user persona -->
+- The ideal user for this application is a professor who wants to sort students into a house based on their beliefs.
+- They want to be able to enter a student's name and have them sorted into a house. 
+- They also want to be able to filter through each house and be able to expel the students if they must.
+- The problem this app solves is it filters students to make it easy navigating through, potentially, a large number of students.
 
-## Instructions
-You are in charge of bringing the Hogwarts sorting hat to life! 
+## Features <!-- List your app features using bullets! Do NOT use a paragraph. No one will read that! -->
+- The DOM will populate a welcome message, followed by a form to enter the student's name.
+- The DOM will then populate with filter buttons on top and all of the students in the array.
+- Filter Buttons: There are five buttons (Show All, Gryffindor, Hufflepuff, Ravenclaw, and Slytherin) that will filter each type of house.
+- House Colors: The color of each studnet's card changes depending on the type of house.
+- Expel Button: An expel button is used to remove a student from the student array and into Voldemort's array.
 
-This is what the finished app should have:
-- To start off with, you will use a [bootstrap card](https://getbootstrap.com/docs/5.0/components/card/#header-and-footer) to have your sorting hat introduce itself and start the sorting process (by clicking on a button). The form should not be on the DOM until the button click happens.
+## Video Walkthrough of Pet Adoption <!-- A loom link is sufficient -->
+<!-- https://www.loom.com/share/ba38ea11daa94efdaae1e5a36b8e4508 -->
 
-- A [bootstrap form](https://getbootstrap.com/docs/5.0/forms/overview/) will then appear to fill in the student's name and a button to sort. This should then assign the student to a random house (Gryffindor, Hufflepuff, Ravenclaw, or Slytherin). 
+## Relevant Links <!-- Link to all the things that are required outside of the ones that have their own section -->
+- [Check out the deployed site](https://awc-sorting-hat.netlify.app/)
 
-- On sorting a student, the form should clear and a [bootstrap card](https://getbootstrap.com/docs/5.0/components/card/) with the student's name and a random house assignment should print below the form. 
+## Code Snippet <!-- OPTIONAL, but doesn't hurt -->
+<!-- This function deletes a pet from the array and prints it to the DOM. It will also keep you on the current filter selection.
+```
+// Deletes the pet card
+const deletePet = (event) => {
+  const targetId = event.target.id;
+  const targetType = event.target.type;
 
-- You should also be able to expel a student after they have been sorted, which should remove their card from the student array and move them to Moldy Voldy's Army.
+  if (currentPage !== "all" && targetType === "button") {   // Check if the pets have been filtered and the delete button was pressed
+    const tempArray = pets.filter(pet => pet.type === currentPage);   // Filter the pets again and assign it to a temporary array
+    for (let i = 0; i < pets.length; i++) {   
+      if (pets[i] === tempArray[targetId]) {    // Loop through the main array to find the pet in the filtered array
+        tempArray.splice(targetId, 1);    // Delete the pet from the filtered array
+        pets.splice(i, 1);    // Delete the pet from the main array
+        petBuilder(tempArray);    // Rebuild the filtered page
+        break;    // Break out of the loop
+      }
+    }
+  } else if (targetType === "button") {   // Check if the pets were not filtered and the delete button was pressed
+    pets.splice(targetId, 1);   // Delete the pet from the main array
+    petBuilder(pets);   // Rebuild the main page
+  }
+};
+``` -->
 
-In the end, your app will look something like: 
+## Project Screenshots <!-- These can be inside of your project. Look at the repos from class and see how the images are included in the readme -->
+<!-- ![Show All](Pet_Adoption_Show_All.PNG)
+![Cats](Pet_Adoption_Cats.PNG)
+![Dogs](Pet_Adoption_Dogs.PNG)
+![Dinos](Pet_Adoption_Dinos.PNG) -->
 
-![Sorting Hat Wireframe](https://user-images.githubusercontent.com/29741570/127729524-c6a96f34-0ee7-442e-99c0-016ab48f31db.png)
-
-[See Demo](https://drt-sortinghat.netlify.app/)
-
-## Technical Requirements
-- You MUST plan your project and create issue tickets and a project board fro your project
-- You MAY use the `renderToDom()` function that we worked on in class, but you also need to be able to explain it if you use it
-- You have to create a data structure for your project. Review all the elements that need to be on the DOM and create the structure accordingly
-- You must use [Boostrap](https://getbootstrap.com/) to style your page components
-- You must use a loop other than a `for loop`
-- Your JS file should be comprised of functions, no actions should happen in your code outside of a function except for your initial `init()` function
-- Your code MUST be YOUR code. Do not copy and paste code into your project. Type every bit of it out
-- Your HTML and JS should all have proper indentation
-- Helpful Form: An error message shows if a user tries to sort a student without filling out the form
-- You should apply responsive design to your page (aka your app should be designed to work on small screens)
-- Voldermort's Army: Create a separate container of cards that hold the cards for students that have been expelled. These should be styled differently from Hogwarts students.
-- Add filter buttons to filter the non-expelled students by house
-
-## Expel Button Hints
-Think of a way you can expel students without just hiding those divs on the page. This would mean when the button is clicked you modify the array of students and pass the new array into your `renderToDom()` function.  Double hint - put a unique id in the student object when you create them.
-
-## Optional Bonus
-- House Colors: The color of the student's card changes depending on which house they were sorted. 
-- Card Ordering: Sort the student cards by some criteria (i.e. alphabetically by name, by house)
-
+## Contributors
+- [Albert Chittaphong](https://github.com/albertchitta)
