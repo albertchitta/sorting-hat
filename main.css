@@ -133,7 +133,7 @@ img {
 #all {
   border: none;
   outline: none;
-  padding: 12px 16px;
+  /* padding: 12px 16px; */
   background-color: rgb(92, 9, 226);
   color: white;
   cursor: pointer;
@@ -147,7 +147,6 @@ img {
 #gryffindor {
   border: none;
   outline: none;
-  padding: 12px 16px;
   background-color: #AE0001;
   color: white;
   cursor: pointer;
@@ -161,7 +160,6 @@ img {
 #hufflepuff {
   border: none;
   outline: none;
-  padding: 12px 16px;
   background-color: #cfb404;
   color: white;
   cursor: pointer;
@@ -176,7 +174,6 @@ img {
   border: none;
   outline: none;
   justify-content: center;
-  padding: 12px 16px;
   background-color: #0f2986;
   color: white;
   cursor: pointer;
@@ -190,7 +187,6 @@ img {
 #slytherin {
   border: none;
   outline: none;
-  padding: 12px 16px;
   background-color: #2A623D;
   color: white;
   cursor: pointer;
