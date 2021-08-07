@@ -187,6 +187,11 @@ const studentExpel = (event) => {
   }
 };
 
+// Updates a student card
+const updateStudent = (event) => {
+
+};
+
 // Builds the Death Eater card
 const deathEaterCardBuilder = (voldysArray) => {
   let domString = "";
@@ -194,7 +199,7 @@ const deathEaterCardBuilder = (voldysArray) => {
   voldysArray.forEach((deathEater) => {
     deathEater.house = "Death Eater"
     domString += `
-      <div id="${deathEater.house}" class="card" style="width: 18rem;">
+      <div id="Death_Eater" class="card" style="width: 18rem;">
         <img class="card-img-top" src="https://cdn.shopify.com/s/files/1/0030/6003/9729/products/il_fullxfull.1619712634_nn9z_452x.jpg?v=1556590059" alt="death eater mark">
         <div class="card-body">
           <h5 class="card-title">${deathEater.name}</h5>
@@ -233,6 +238,7 @@ const buttonEvents = () => {
   document.querySelector("#form").addEventListener("click", studentSort);
   document.querySelector("#buttonContainer").addEventListener("click", handleFilterButtons);
   document.querySelector("#cardContainer").addEventListener("click", studentExpel);
+  // document.querySelector("#cardContainer").addEventListener("click", studentUpdate);
 }
 
 // Starts the app
