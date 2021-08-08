@@ -1,7 +1,8 @@
 # Sorting Hat  [![Netlify Status](https://api.netlify.com/api/v1/badges/c9892978-61ce-43b2-86f3-0dabf5ef8b14/deploy-status)](https://app.netlify.com/sites/awc-sorting-hat/deploys)
 <!-- update the netlify badge above with your own badge that you can find at netlify under settings/general#status-badges -->
 
-The Sorting Hat project is focused on creating an array of objects and printing them to the DOM. The project utilizes loops, event listeners, and filter buttons all built within functions.
+In The Sorting Hat project, the users will enter their name and will be sorted into a random house. The user can filter the students by house and can even expel students. Once students are expelled, they will be removed from the First Years and into Voldemort's Army.
+This project is focused on creating an array of objects and printing them to the DOM. The project utilizes loops, event listeners, and filter buttons all built within functions.
 
 [View App](https://awc-sorting-hat.netlify.app/)
 
@@ -24,41 +25,49 @@ $ cd sorting-hat
 - Expel Button: An expel button is used to remove a student from the student array and into Voldemort's array.
 
 ## Video Walkthrough of Pet Adoption <!-- A loom link is sufficient -->
-<!-- https://www.loom.com/share/ba38ea11daa94efdaae1e5a36b8e4508 -->
+https://www.loom.com/share/c8d85532094a4b48b69199ee2a240804
 
 ## Relevant Links <!-- Link to all the things that are required outside of the ones that have their own section -->
 - [Check out the deployed site](https://awc-sorting-hat.netlify.app/)
+- [Wireframes](https://docs.google.com/presentation/d/1gv22M3hHxgfFMewJT2STMWWveQ6aVWaZ-nXvqgQczH8/edit?usp=sharing)
+- [Project Board](https://github.com/albertchitta/sorting-hat/projects/1)
 
 ## Code Snippet <!-- OPTIONAL, but doesn't hurt -->
-<!-- This function deletes a pet from the array and prints it to the DOM. It will also keep you on the current filter selection.
+This function deletes a pet from the array and prints it to the DOM. It will also keep you on the current filter selection.
 ```
-// Deletes the pet card
-const deletePet = (event) => {
+// Expels a student to Voldy's Army
+const studentExpel = (event) => {
   const targetId = event.target.id;
   const targetType = event.target.type;
 
-  if (currentPage !== "all" && targetType === "button") {   // Check if the pets have been filtered and the delete button was pressed
-    const tempArray = pets.filter(pet => pet.type === currentPage);   // Filter the pets again and assign it to a temporary array
-    for (let i = 0; i < pets.length; i++) {   
-      if (pets[i] === tempArray[targetId]) {    // Loop through the main array to find the pet in the filtered array
-        tempArray.splice(targetId, 1);    // Delete the pet from the filtered array
-        pets.splice(i, 1);    // Delete the pet from the main array
-        petBuilder(tempArray);    // Rebuild the filtered page
-        break;    // Break out of the loop
+  if (currentPage !== "all" && targetType === "button") {   // Check if the houses have been filtered and the expel button was pressed
+    const tempArray = students.filter(student => student.house.toLowerCase() === currentPage);    // Filter the houses again and assign it to a temporary array
+    let i = 0;
+    while (i < students.length) {
+      if (students[i] === tempArray[targetId]) {    // Loop through the main array to compare the students in the filtered
+        tempArray.splice(targetId, 1);    // Delete the student from the filtered aray
+        const expelledStudent = students.splice(i, 1);    // Delete the student from the main array
+        voldysArmy.push(expelledStudent[0]);    // Add the expelled student to Voldy's array
+        studentCardBuilder(tempArray);    // Build the filtered array
+        sortByName(voldysArmy);   // Sort cards by name
+        deathEaterCardBuilder(voldysArmy);    // Build Voldy's array 
+        break;    // Break out of the loop;
       }
-    }
-  } else if (targetType === "button") {   // Check if the pets were not filtered and the delete button was pressed
-    pets.splice(targetId, 1);   // Delete the pet from the main array
-    petBuilder(pets);   // Rebuild the main page
+      i++;
+    };
+  } else if (targetType === "button") {
+    expelledStudent = students.splice(targetId, 1);
+    voldysArmy.push(expelledStudent[0]);
+    studentCardBuilder(students);
+    sortByName(voldysArmy);
+    deathEaterCardBuilder(voldysArmy);
   }
 };
-``` -->
+```
 
 ## Project Screenshots <!-- These can be inside of your project. Look at the repos from class and see how the images are included in the readme -->
-<!-- ![Show All](Pet_Adoption_Show_All.PNG)
-![Cats](Pet_Adoption_Cats.PNG)
-![Dogs](Pet_Adoption_Dogs.PNG)
-![Dinos](Pet_Adoption_Dinos.PNG) -->
-
+![Welcome](Sorting_Hat_Welcome.PNG)
+![Overview](Sorting_Hat_Overview.PNG)
+![Filter](Sorting_Hat_Filter.PNG)
 ## Contributors
 - [Albert Chittaphong](https://github.com/albertchitta)
