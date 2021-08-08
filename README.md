@@ -33,7 +33,7 @@ https://www.loom.com/share/c8d85532094a4b48b69199ee2a240804
 - [Project Board](https://github.com/albertchitta/sorting-hat/projects/1)
 
 ## Code Snippet <!-- OPTIONAL, but doesn't hurt -->
-This function deletes a pet from the array and prints it to the DOM. It will also keep you on the current filter selection.
+This function deletes a student from the array and prints it to the DOM. It will also keep you on the current filter selection.
 ```
 // Expels a student to Voldy's Army
 const studentExpel = (event) => {
@@ -69,5 +69,6 @@ const studentExpel = (event) => {
 ![Welcome](Sorting_Hat_Welcome.PNG)
 ![Overview](Sorting_Hat_Overview.PNG)
 ![Filter](Sorting_Hat_Filter.PNG)
+
 ## Contributors
 - [Albert Chittaphong](https://github.com/albertchitta)
